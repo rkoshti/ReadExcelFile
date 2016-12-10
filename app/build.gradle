@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "25.0.0"
+
+    defaultConfig {
+        applicationId "com.readexcel"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+  //  compile 'com.android.support:appcompat-v7:23.0.1'
+    //compile 'com.android.support:design:23.0.1'
+    compile 'com.android.support:multidex:1.0.1'
+
+  /*  def poiVersion='3.9'
+    compile 'org.apache.poi:poi:'+poiVersion
+    compile 'org.apache.poi:poi-ooxml:'+poiVersion
+    compile 'org.apache.poi:poi-ooxml-schemas:'+poiVersion*/
+}
